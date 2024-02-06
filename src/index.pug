@@ -1,0 +1,52 @@
+- var title = "This is header"
+- var product_code = "Product code: A68668D"
+- var reviews = "Reviews: 5"
+- var price = "$1200"
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="stylesheet", href="style.css")
+    body 
+        nav.wrapper
+            .container
+                header
+                    img(src="img/logo.png", alt="MOYO")
+
+                ul  
+                    li.active
+                        a(href="#") Apple
+                    li
+                        a(href="#") Samsung
+                    li
+                        a(href="#") Smartphones
+                    li
+                        a(href="#") Laptops & Computers
+                    li
+                        a(href="#") Tablets
+                    li
+                        a(href="#") Photo
+                    li
+                        a(href="#") Video 
+
+        main.wrapper
+            .container
+               - for(var i = 1; i <= 8; i++)
+                    section.card-block
+                        img(src="./img/imac.jpeg", alt="iMac")
+                        h2= title
+                        p= product_code
+                        .stars-block
+                            div
+                                - for(var j = 1; j <= 4; j++)
+                                    img(src="img/star-active.svg", alt="star active")
+                                img(src="img/star.svg", alt="star")
+
+                            span= reviews
+                        .price
+                            span Price:
+                            strong= price
+                        button BUY

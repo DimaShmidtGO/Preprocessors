@@ -1,0 +1,90 @@
+$white_accent: rgb(225,225,225)
+$grey_accent: rgb(75,75,75)
+$blue_accent: rgb(53,171, 271)
+$font_family: Arial
+
+@mixin hover_elem()
+    a
+        color: $blue_accent !important
+
+@mixin flex_elem($content_position: space-between)
+    display: flex
+    align-items: center
+    justify-content: $content_position
+
+    @content
+
+body
+    margin: 0
+    padding: 0
+
+.wrapper
+    max-width: 1200px
+    margin: 0 auto
+nav
+    padding: 10px 10px
+    box-shadow: 0 1px 5px $white_accent
+
+.container
+    @include flex_elem()
+
+    li
+        position: relative
+        display: inline-block
+        margin-right: 15px
+
+        &:last-child
+            margin-right: 0
+
+        &:hover
+            @include hover_elem
+
+        &.active
+            @include hover_elem
+
+            &::before
+                content: ""
+                position: absolute
+                bottom: -25px
+                height: 5px
+                width: 100%
+                border-radius: 2em
+                background: $blue_accent
+    a
+        font-family: Arial
+        font-weight: bold
+        text-transform: uppercase
+        text-decoration: 0
+        color: $grey_accent
+
+main
+    margin-top: 50px !important
+
+    > .container
+        @include flex_elem(space-around)
+        flex-wrap: wrap
+        gap: 15px
+
+.card-block
+    width: 250px
+    border: 1px solid $white_accent
+    padding: 10px
+    border-radius: 1.2em
+
+    > img
+        width: 100%
+
+    > button
+        width: 100%
+        height: 40px
+        border: 1px solid $white_accent
+        background: $blue_accent
+        color: #ffffff
+        border-radius: 0.5em
+        margin-top: 20px
+
+.stars-block
+    @include flex_elem()
+
+.price
+    @include flex_elem()
